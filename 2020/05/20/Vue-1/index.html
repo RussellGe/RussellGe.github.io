@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Vue笔记vue中的核心语法基础 html: -&gt;vue: var app &#x3D; new    vue(&amp;#123;   &lt;&#x2F;br&gt;   el: &quot;the ID of the html part&quot;&lt;&#x2F;br&gt;   data:&amp;#123;         message: &quot;Hello World&quot;&lt;&#x2F;br&gt;    &amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 1">
+<meta property="og:url" content="http://yoursite.com/2020/05/20/Vue-1/index.html">
+<meta property="og:site_name" content="Russssss">
+<meta property="og:description" content="Vue笔记vue中的核心语法基础 html: -&gt;vue: var app &#x3D; new    vue(&amp;#123;   &lt;&#x2F;br&gt;   el: &quot;the ID of the html part&quot;&lt;&#x2F;br&gt;   data:&amp;#123;         message: &quot;Hello World&quot;&lt;&#x2F;br&gt;    &amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta property="article:published_time" content="2020-05-20T13:06:51.000Z">
+<meta property="article:modified_time" content="2020-08-17T03:45:48.716Z">
+<meta property="article:author" content="RussellGe">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Vue 1</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.0.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/20/Django-Model/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/20/NewBlog/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/20/Vue-1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/20/Vue-1/&text=Vue 1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/20/Vue-1/&is_video=false&description=Vue 1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue 1&body=Check out this article: http://yoursite.com/2020/05/20/Vue-1/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/20/Vue-1/&name=Vue 1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/20/Vue-1/&t=Vue 1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Vue笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E4%B8%AD%E7%9A%84%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">vue中的核心语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">指令
+</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6-%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.1.3.</span> <span class="toc-text">条件&#x2F;循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">初始化语法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#html%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">html中使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">实例的生命周期钩子：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">侦听器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9AHTML%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.3.</span> <span class="toc-text">绑定HTML对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">v-show</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.2.4.</span> <span class="toc-text">列表循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E7%BB%91%E5%AE%9A%E8%BE%93%E5%85%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text">表单绑定输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.3.3.</span> <span class="toc-text">组件基础</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Vue 1
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Russssss</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-20T13:06:51.000Z" itemprop="datePublished">2020-05-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Vue笔记"><a href="#Vue笔记" class="headerlink" title="Vue笔记"></a>Vue笔记</h1><h2 id="vue中的核心语法"><a href="#vue中的核心语法" class="headerlink" title="vue中的核心语法"></a>vue中的核心语法</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><p>html: -&gt;</br><br>vue: </br><br>var app = new </p>
+<pre><code>  vue(&#123;   &lt;/br&gt;
+  el: &quot;the ID of the html part&quot;&lt;/br&gt;
+  data:&#123;  
+      message: &quot;Hello World&quot;&lt;/br&gt; 
+  &#125;&lt;/br&gt;
+  computed:&#123;&lt;/br&gt;
+      reversedMessage: function()&#123;&lt;/br&gt;
+          //这里的this指向的是app实例&lt;/br&gt;
+          return this.message.split(&#39;&#39;).reverse().join(&#39;&#39;)
+          &lt;/br&gt;&#125;&lt;/br&gt;&#125;&lt;/br&gt;
+          **计算属性的setter：设置后可以通过给计算属性赋值改变其所用的data的值**
+  methods: &#123;&lt;/br&gt;
+        reversedMessage: function () &#123;&lt;/br&gt;
+              return this.message.split(&#39;&#39;).reverse().join(&#39;&#39;)&lt;/br&gt;
+        &#125;&lt;/br&gt;
+  &#125; &#125;)</code></pre>
+<p>  <strong>计算属性（computed）基于message的变化响应，方法：每次重新的渲染总会再次执行方法 如果需要进行大量的计算，则计算属性需要占用缓存</strong></p>
+</li>
+</ul>
+<p><strong>如果想要修改message的值，可以使用app.message = new value  Vue把message当成app的一个属性</strong></br></p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</br></h3><p><strong>Vue中的指令以v-开头</strong></br></p>
+<ul>
+<li><p>v-blind: 绑定指令 </br>语法：v-blind: title = “message”（3部分： 可以理解为主谓宾结构————将message property绑定到该元素的title attribute上）</br><strong>可以缩写为 ：</strong></p>
+</li>
+<li><p>v-on: 添加事件监听器</br>语法： v-on：click=‘xxx’ （监听click事件，当click事件发生时调用xxx函数）</br><strong>可以缩写为 @</strong></p>
+</li>
+<li><p>v-model：用于实现表单输入和当前应用之间的双向绑定</br><br>语法：&lt; p&gt; &lt; /p&gt;<br></br>&lt; input v-model = ‘message’&gt;</br>绑定之后，用户输入将会实时的显示在网页上</p>
+</li>
+<li><p>v-once: 一次性插入，将不会改变插入后的值 </p>
+</li>
+</ul>
+<p><strong>动态参数：[参数名] attribute可以动态改变</strong></p>
+<p><strong>修饰符： 加. 后缀， 例如.prevent可以告诉指令对于触发的事件调用event.preventDefault()函数</strong></p>
+<h3 id="条件-循环"><a href="#条件-循环" class="headerlink" title="条件/循环"></a>条件/循环</h3><ul>
+<li><p>v-if: 判断一个property是否为<strong>true 注意一定是小写</strong> 如果是的话则显示标签内容，不是则隐藏</br></p>
+</li>
+<li><p>拓展*：&lt; transform &gt;是Vue设定的动画标签，可以自动加动画效果， 例如name=”fade” 就有渐入渐出效果</p>
+</li>
+<li><p>v-for： 用于渲染一组数据</br><br>Example： &lt; li v-for = ‘todo in todos’&gt;  (第一个todo是代名，无影响， 第二个todos是真正的property名)</br></p>
+
+<p></br>&lt; /li&gt;</br></br><br>data: {</br><br>todos:[{text: “fdsfcdsa”}, {text:’hhhhhh’}]<br></br>}</p>
+<p>(传入的数据是用json格式写的， 如果添加了新的属性，也会实时渲染上去)</p>
+</li>
+</ul>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p><strong>组件的本质：一个拥有预定义选项的Vue实例</strong> <strong>所有的组件都是Vue实例，并且接受相同的<em>选项对象</em></strong></br></p>
+<ul>
+<li><h5 id="初始化语法："><a href="#初始化语法：" class="headerlink" title="初始化语法："></a>初始化语法：</h5>Vue.component(‘todo-item’ <strong>设定的新标签名字</strong> ,{</br><br>prop: [‘todo’], <strong>prop 是一个自定义的attribute， 这个新标签可接收这个prop</strong></br><br>template:”&lt; li&gt;&lt; li&gt;” <strong>设定的新标签自带的内容</strong></br><br>})</li>
+<li><h5 id="html中使用："><a href="#html中使用：" class="headerlink" title="html中使用："></a>html中使用：</h5>&lt; todo-item </br><br>v-for = “item in List” <strong>把LIST中的数据渲染到网页上</strong></br><br>v-bind:todo = ‘item’ <strong>把得到的item property 绑定到我们预先设置好的attribute（prop）todo上</strong></br><br>v-bind:key = “item.id”<strong>给每一个todo-item 一个PK</strong>&gt;</li>
+</ul>
+<p><strong>组件刷新的机制： 当一个Vue实例被创建时， 会将data对象（注意，data其实是一个对象）中的所有property加入Vue的响应式系统，当property的值发生改变的时候， 视图就会响应</strong><br></br><strong>这样的机制导致我们在定义data的property时候，需要先将所有需要的property设置初始值，因为新加入的property还未在被定义时加入响应式系统</strong></br></p>
+<ul>
+<li><p>阻碍响应的方法：</br><br>Object.freeze(obj) 用了此方法之后，obj中的property将被阻止修改</p>
+</li>
+<li><p>Vue实例自带一些property：</br><br>Vue实例自带一些property，例如el，data 需要引用他们时可以在前面加上$，以便和用户定义的property区别开来</p>
+<h3 id="实例的生命周期钩子："><a href="#实例的生命周期钩子：" class="headerlink" title="实例的生命周期钩子："></a>实例的生命周期钩子：</h3></li>
+<li><p>*用户可以在不同的生命周期添加自己的代码**<br><img src="https://cn.vuejs.org/images/lifecycle.png" alt="生命周期"><br>例如：created钩子： 可以在一个实例被创建的时候执行代码</p>
+</li>
+<li><p>*钩子里的函数一般都会使用 this， 所以不使用箭头函数或者是回掉函数**</p>
+<h3 id="侦听器"><a href="#侦听器" class="headerlink" title="侦听器"></a>侦听器</h3></li>
+<li><p>*当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。**</br><br>因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 </br><br>提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。</br><br>&lt; script src=”<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js&quot;&gt;">https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js&quot;&gt;</a></script></br><br>&lt; script src=”<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js&quot;&gt;">https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js&quot;&gt;</a></script></br></br></p>
+</li>
+<li><p>&lt; script&gt;</br><br>var watchExampleVM = new Vue({</br><br>el: ‘#watch-example’,</br><br>data: {</br><br>  question: ‘’,</br><br>  answer: ‘I cannot give you an answer until you ask a question!’</br><br>},</br><br>watch: {</br><br>  // 如果 <code>question</code> 发生改变，这个函数就会运行</br><br>  question: function (newQuestion, oldQuestion) {</br></p>
+<pre><code>this.answer = &#39;Waiting for you to stop typing...&#39;&lt;/br&gt;
+this.debouncedGetAnswer()&lt;/br&gt;</code></pre>
+<p>  }</br><br>},</br><br>created: function () {</br><br>  // <code>_.debounce</code> 是一个通过 Lodash 限制操作频率的函数。</br><br>  // 在这个例子中，我们希望限制访问 yesno.wtf/api 的频率</br><br>  // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于</br><br>  // <code>_.debounce</code> 函数 (及其近亲 <code>_.throttle</code>) 的知识，</br><br>  // 请参考：<a target="_blank" rel="noopener" href="https://lodash.com/docs#debounce">https://lodash.com/docs#debounce</a></br><br>  this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)</br><br>},</br><br>methods: {</br><br>  getAnswer: function () {</br></p>
+<pre><code>if (this.question.indexOf(&#39;?&#39;) === -1) &#123;&lt;/br&gt;
+  this.answer = &#39;Questions usually &lt;/br&gt;contain a question mark. ;-)&#39;&lt;/br&gt;
+  return&lt;/br&gt;
+&#125;&lt;/br&gt;
+this.answer = &#39;Thinking...&#39;&lt;/br&gt;
+var vm = this&lt;/br&gt;
+axios.get(&#39;https://yesno.wtf/api&#39;)&lt;/br&gt;
+  .then(function (response) &#123;&lt;/br&gt;
+    vm.answer = _.capitalize(response.data.answer)&lt;/br&gt;
+  &#125;)&lt;/br&gt;
+  .catch(function (error) &#123;&lt;/br&gt;
+    vm.answer = &#39;Error! Could not reach the API. &#39; + error&lt;/br&gt;
+  &#125;)&lt;/br&gt;</code></pre>
+<p>  }</br><br>}</br><br>})</br><br>&lt; /script&gt;</p>
+</li>
+</ul>
+<h3 id="绑定HTML对象"><a href="#绑定HTML对象" class="headerlink" title="绑定HTML对象"></a>绑定HTML对象</h3><p><strong>用于方便的处理attributes：class和style的绑定</strong></p>
+<h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><ul>
+<li><p>对象语法：</br><br>&lt; div v-bind:class=”{ active: isActive }”&gt;&lt; /div&gt;<br>用 isActive（一个data中的property）来决定class active是否存在<br></br>同样我们可以传入一组对象，进行多个判断</br><br></br><strong>更加实用的方式是外联式➕计算属性</strong><br></br>&lt; div v-bind:class=”classObject”&gt;&lt; /div&gt;</br><br>data: {</br><br>isActive: true,</br><br>error: null</br><br>},</br><br>computed: {</br><br>classObject: function () {</br><br>  return {</br></p>
+<pre><code>active: this.isActive &amp;&amp; !this.error,&lt;/br&gt;
+&#39;text-danger&#39;: this.error &amp;&amp; this.error.type === &#39;fatal&#39;&lt;/br&gt;</code></pre>
+<p>  }</br><br>}</br><br>}</br></p>
+</li>
+<li><p>数组语法</br><br>&lt; div v-bind:class=”[activeClass, errorClass]”&gt;&lt; /div&gt;<br></br>data: {</br><br>activeClass: ‘active’,</br><br>errorClass: ‘text-danger’</br><br>}</br><strong>我们在数组语法中同样可以写条件判断</strong><br></br>&lt; div v-bind:class=”[isActive ? activeClass : ‘’, errorClass]”&gt;&lt; /div&gt;<strong>我们也可以在数组语法中使用对象语法</strong></br>&lt; div v-bind:class=”[{ active: isActive }, errorClass]”&gt;&lt; /div&gt;<strong>在组件上使用class绑定时候，不会覆盖之前的class，而是向后添加新的class</strong></p>
+</br>
+#### style </br></li>
+<li><p>对象语法</br><br>&lt; div v-bind:style=”{ color: activeColor, fontSize: fontSize + ‘px’ }”&gt;&lt; /div&gt;<strong>CSS的property名可采用驼峰式或者短横线分隔式</strong></br><br></br><strong>vue会自动侦测并帮助添加需要浏览器引擎渲染的前缀，例如transform</strong><br></br></br><strong>你可以为 style 绑定中的 property 提供一个包含多个值的数组，常用于提供多个带前缀的值</strong></p>
+</br>
+### 条件渲染</li>
+<li><p>存在v-else模块<br></br>&lt; h1 v-if=”awesome”&gt;Vue is awesome!&lt; /h1&gt;<br>&lt; h1 v-else&gt;Oh no 😢&lt; /h1&gt;</p>
+</br>
+v-else 元素必须紧跟在带 v-if 或者 v-else-if 的元素的后面，否则它将不会被识别。</li>
+<li><p>v-else-if标签<br>&lt; div v-if=”type === ‘A’”&gt;</br><br>A</br><br>&lt; /div&gt;</br><br>&lt; div v-else-if=”type === ‘B’”&gt;</br><br>B</br><br>&lt; /div&gt;</br><br>&lt; div v-else-if=”type === ‘C’”&gt;</br><br>C</br><br>&lt; /div&gt;</br><br>&lt; div v-else&gt;</br><br>Not A/B/C</br><br>&lt; /div&gt;</br></p>
+</li>
+<li><p>多个元素打包获得v-if：</br><br>可以创造一个template标签，在其中添加v-if， 标签包含的所有字标签都将会获得v-if标签</br></p>
+</br>
+#### key值</br></li>
+<li><p>*Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染 可以理解为，改变标签的attributes或者innerHTML**</br><br>key值用来定义组件名字，可以让他不复用</br></p>
+</li>
+</ul>
+<h4 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h4><p><strong>可以理解为一个预先加载html的v-if</strong><br></br><strong>v-if是惰性的，在第一次条件为真之前这个元素其实是不存在的，而v-show是预先加载，并通过简单的css来切换</strong><br></br><br></br><strong>不推荐v-if与v-for一起使用</strong></br></p>
+<h3 id="列表循环"><a href="#列表循环" class="headerlink" title="列表循环"></a>列表循环</h3><ul>
+<li><p>我们可以用 v-for 指令基于一个数组来渲染一个列表。v-for 指令需要使用 item <strong>in（或者of）</strong> items 形式的特殊语法，其中 items 是源数据数组，而 item 则是被迭代的数组元素的别名。<br></br></br>在 v-for 块中，我们可以访问所有父作用域的 property。v-for 还支持一个可选的第二个参数，即当前项的索引。<strong>可以理解为PK</strong></p>
+</li>
+<li><p>维护机制<br>如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染<br></br></br><br>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key attribute<br></br></br></br></br></br></br></br></br></br></br></p>
+</li>
+<li><p>数组更新</br><br><strong>变更方法 它们也将会触发视图更新</strong><br></br>push()<br>pop()<br>shift()<br>unshift()<br>splice()<br>sort()<br>reverse()  </br></p>
+</li>
+<li><p>*替换方法 它们不会变更原始数组，而总是返回一个新数组**  </br><br>filter()、concat() 和 slice() </p>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><h3 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h3></li>
+<li><p>用v-on来监听DOM事件，并在触发时执行一些JS代码</p>
+</li>
+<li><p>有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法：&lt; button v-on:click=”warn(‘Form cannot be submitted yet.’, $event)”&gt;<br>Submit<br>&lt; /button&gt;</p>
+</li>
+<li><p>事件修饰符</br><br>.stop<br>.prevent<br>.capture<br>.self<br>.once<br>.passive<br></br></br><br>&lt; !– 阻止单击事件继续传播 –&gt;</br><br>&lt; a v-on:click.stop=”doThis”&gt;&lt; /a&gt;<br></br></br><br>&lt; !– 提交事件不再重载页面 –&gt;</br><br>&lt; form v-on:submit.prevent=”onSubmit”&gt;&lt; /form&gt;<br></br></br><br>&lt; !– 修饰符可以串联 –&gt;</br><br>&lt; a v-on:click.stop.prevent=”doThat”&gt;&lt; /a&gt;<br></br></br><br>&lt; !– 只有修饰符 –&gt;</br><br>&lt; form v-on:submit.prevent&gt;&lt; /form&gt;<br></br></br><br>&lt; !– 添加事件监听器时使用事件捕获模式 –&gt;</br><br>&lt; !– 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 –&gt;</br><br>&lt; div v-on:click.capture=”doThis”&gt;…&lt; /div&gt;<br></br></br><br>&lt; !– 只当在 event.target 是当前元素自身时触发处理函数 –&gt;<br>&lt; !– 即事件不是从内部元素触发的 –&gt;</br><br>&lt; div v-on:click.self=”doThat”&gt;…&lt; /div&gt;</p>
+</li>
+</ul>
+<h3 id="表单绑定输入"><a href="#表单绑定输入" class="headerlink" title="表单绑定输入"></a>表单绑定输入</h3><ul>
+<li>你可以用 v-model 指令在表单 &lt; input&gt;、&lt; textarea&gt; 及 &lt; select&gt; 元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。</li>
+<li>v-model 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：</br><br>text 和 textarea 元素使用 value property 和 input 事件；<br>checkbox 和 radio 使用 checked property 和 change 事件；<br>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+</ul>
+<h3 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h3><ul>
+<li>组件的data必须是一个函数，不然对一个组件进行操作，所有组件都会受到影响</li>
+<li>我们通过Prop向子组件传递数据，Prop可以是基础数据类型，也可以是OBJECT</li>
+<li>在注册了prop之后，我们可以这样传递数据：&lt; blog-post title=”My journey with Vue”&gt;&lt; /blog-post&gt;这样我们就给组件的prop： title赋上值了</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Vue笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E4%B8%AD%E7%9A%84%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">vue中的核心语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">指令
+</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6-%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.1.3.</span> <span class="toc-text">条件&#x2F;循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">初始化语法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#html%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">html中使用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">实例的生命周期钩子：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">侦听器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9AHTML%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.3.</span> <span class="toc-text">绑定HTML对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">v-show</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.2.4.</span> <span class="toc-text">列表循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E7%BB%91%E5%AE%9A%E8%BE%93%E5%85%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text">表单绑定输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.3.3.</span> <span class="toc-text">组件基础</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/20/Vue-1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/20/Vue-1/&text=Vue 1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/20/Vue-1/&is_video=false&description=Vue 1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue 1&body=Check out this article: http://yoursite.com/2020/05/20/Vue-1/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/20/Vue-1/&title=Vue 1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/20/Vue-1/&name=Vue 1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/20/Vue-1/&t=Vue 1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    RussellGe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

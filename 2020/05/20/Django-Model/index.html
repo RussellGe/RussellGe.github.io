@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Django Model每次修改models.py之后:python manage.py makemigrationspython migrate测试版本Django &#x3D;&#x3D; 1.10  语法:class PostModel(models.Model): 命名法：词头大写  id &#x3D; models.IntergerField(primary_key &#x3D; True)将会自动增加   pass  Fil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Model">
+<meta property="og:url" content="http://yoursite.com/2020/05/20/Django-Model/index.html">
+<meta property="og:site_name" content="Russssss">
+<meta property="og:description" content="Django Model每次修改models.py之后:python manage.py makemigrationspython migrate测试版本Django &#x3D;&#x3D; 1.10  语法:class PostModel(models.Model): 命名法：词头大写  id &#x3D; models.IntergerField(primary_key &#x3D; True)将会自动增加   pass  Fil">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-20T20:20:29.000Z">
+<meta property="article:modified_time" content="2020-08-17T03:45:48.716Z">
+<meta property="article:author" content="RussellGe">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Django Model</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.0.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/22/CSS-1/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/20/Vue-1/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/20/Django-Model/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/20/Django-Model/&text=Django Model"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/20/Django-Model/&is_video=false&description=Django Model"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django Model&body=Check out this article: http://yoursite.com/2020/05/20/Django-Model/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/20/Django-Model/&name=Django Model&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/20/Django-Model/&t=Django Model"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Django-Model"><span class="toc-number">1.</span> <span class="toc-text">Django Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AutoField"><span class="toc-number">1.0.1.</span> <span class="toc-text">AutoField</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#class-AutoField-options"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">class AutoField(**options)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BigAutoField"><span class="toc-number">1.0.2.</span> <span class="toc-text">BigAutoField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BigAutoField-options"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">class BigAutoField(**options)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BinaryField"><span class="toc-number">1.0.3.</span> <span class="toc-text">BinaryField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BinaryField-max-length-None-options"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">class BinaryField(max_length&#x3D;None, **options)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BooleanField"><span class="toc-number">1.0.4.</span> <span class="toc-text">BooleanField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BooleanField-options"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">class BooleanField(**options)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ModelManagers"><span class="toc-number">1.1.</span> <span class="toc-text">ModelManagers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#signals"><span class="toc-number">1.2.</span> <span class="toc-text">signals</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Django Model
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Russssss</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-20T20:20:29.000Z" itemprop="datePublished">2020-05-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Django/" rel="tag">Django</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Django-Model"><a href="#Django-Model" class="headerlink" title="Django Model"></a>Django Model</h1><p><strong>每次修改models.py之后:</strong></br><br><strong>python manage.py makemigrations</strong></br><br><strong>python migrate</strong></br><br><em>测试版本Django == 1.10</em></p>
+<ul>
+<li><p>语法:</br><br>class PostModel(models.Model): <strong>命名法：词头大写</strong></br><br>  id = models.IntergerField(primary_key = True)<strong>将会自动增加</strong></br></p>
+<p>  pass</p>
+</li>
+<li><p>Filed options<br></br>null: Means value can be null(use null to represent empty)<br></br></br>blank: Means the value can be nonexsit<br></br></br>defult: set a defult value<br></br></br>max_length: set a max length<br></br></br>verbose _ name: 设置在admin中看到的名字<br></br></br>choices:{ </br><strong>tuple格式</strong></br><br>第一步：设置tuple对（a,b） <strong>b为属性名，a为属性值</strong><br></br>第二步： 在属性中加入choice = tuple的名字<br></br>第三步：调用-&gt;self.b 得到所有拥有属性b的objects<br></br>}<br></br></br>unique: 确认唯一<br></br></br>validators: 许多校验方法， validators = [validatorFunction] <strong>validatorFunction是我们自己写的函数 需要from django.core.exceptions import ValidationError来处理出错的情况</strong><br></br></br>error_ messages = {‘keys’:’values’}<br></br>**keys can be: null, blank, invalid, invalid_choice, unique, and unique_for_date **<br></br></br>help_ text=’the help text’报错下面的提示文本</p>
+</li>
+<li><p>Filed types</br></p>
+<h3 id="AutoField"><a href="#AutoField" class="headerlink" title="AutoField"></a>AutoField</h3><h5 id="class-AutoField-options"><a href="#class-AutoField-options" class="headerlink" title="class AutoField(**options)"></a>class AutoField(**options)</h5><p>An IntegerField that automatically increments according to available IDs. You usually won’t need to use this directly; a primary key field will automatically be added to your model if you don’t specify otherwise. See Automatic primary key fields.</p>
+<h3 id="BigAutoField"><a href="#BigAutoField" class="headerlink" title="BigAutoField"></a>BigAutoField</h3><h4 id="class-BigAutoField-options"><a href="#class-BigAutoField-options" class="headerlink" title="class BigAutoField(**options)"></a>class BigAutoField(**options)</h4><p>A 64-bit integer, much like an AutoField except that it is guaranteed to fit numbers from 1 to 9223372036854775807.</p>
+<h3 id="BinaryField"><a href="#BinaryField" class="headerlink" title="BinaryField"></a>BinaryField</h3><h4 id="class-BinaryField-max-length-None-options"><a href="#class-BinaryField-max-length-None-options" class="headerlink" title="class BinaryField(max_length=None, **options)"></a>class BinaryField(max_length=None, **options)</h4><p>A field to store raw binary data. It can be assigned bytes, bytearray, or memoryview.</p>
+</br>
+By default, BinaryField sets editable to False, in which case it can’t be included in a ModelForm.
+</br>
+BinaryField has one extra optional argument:</li>
+</ul>
+<ol>
+<li>BinaryField.max_length</br><br>The maximum length (in characters) of the field. The maximum length is enforced in Django’s validation using MaxLengthValidator.<h3 id="BooleanField"><a href="#BooleanField" class="headerlink" title="BooleanField"></a>BooleanField</h3><h4 id="class-BooleanField-options"><a href="#class-BooleanField-options" class="headerlink" title="class BooleanField(**options)"></a>class BooleanField(**options)</h4>A true/false field.</br>
+The default form widget for this field is CheckboxInput, or NullBooleanSelect if null=True.  (当null = True：3重表达， True；False；Null)
+</br></br>
+The default value of BooleanField is None when Field.default isn’t defined.
+### CharField
+#### class CharField(max_length=None, **options)
+A string field, for small- to large-sized strings.
+</br></br>
+For large amounts of text, use TextField.
+</br></br>
+The default form widget for this field is a TextInput.
+</br></br>
+CharField has one extra required argument:
+</br></br>
+CharField.max_length
+The maximum length (in characters) of the field. The max_length is enforced at the database level and in Django’s validation using MaxLengthValidator.
+### SlugField
+#### class SlugField(max_length=50, **options)
+Slug is a newspaper term. A slug is a short label for something, containing only letters, numbers, underscores or hyphens. They’re generally used in URLs.
+</br></br>
+Like a CharField, you can specify max_length (read the note about database portability and max_length in that section, too). If max_length is not specified, Django will use a default length of 50.
+</br></br>
+Implies setting Field.db_index to True.
+</br></br>
+It is often useful to automatically prepopulate a SlugField based on the value of some other value. You can do this automatically in the admin using prepopulated_fields.
+</br></br>
+It uses validate_slug or validate_unicode_slug for validation.
+</br></br>
+SlugField.allow_unicode¶
+If True, the field accepts Unicode letters in addition to ASCII letters. Defaults to False.
+### SmallAutoField
+#### class SmallAutoField(**options)
+Like an AutoField, but only allows values under a certain (database-dependent) limit. Values from 1 to 32767 are safe in all databases supported by Django.
+### DateField
+#### class DateField(auto_now=False, auto_now_add=False, **options)
+A date, represented in Python by a datetime.date instance. Has a few extra, optional arguments:
+
+</li>
+</ol>
+<p>DateField.auto_now¶<br>Automatically set the field to now every time the object is saved. Useful for “last-modified” timestamps. Note that the current date is always used; it’s not just a default value that you can override.</p>
+<p>The field is only automatically updated when calling Model.save(). The field isn’t updated when making updates to other fields in other ways such as QuerySet.update(), though you can specify a custom value for the field in an update like that.</p>
+<p>DateField.auto_now_add¶<br>Automatically set the field to now when the object is first created. Useful for creation of timestamps. Note that the current date is always used; it’s not just a default value that you can override. So even if you set a value for this field when creating the object, it will be ignored. If you want to be able to modify this field, set the following instead of auto_now_add=True:</p>
+<p>For DateField: default=date.today - from datetime.date.today()<br>For DateTimeField: default=timezone.now - from django.utils.timezone.now()<br>The default form widget for this field is a DateInput. The admin adds a JavaScript calendar, and a shortcut for “Today”. Includes an additional invalid_date error message key.</p>
+<p>The options auto_now_add, auto_now, and default are mutually exclusive. Any combination of these options will result in an error.</p>
+<ul>
+<li><p>Meta与其他</br><br>可设置verbose_name <em>plural 显示在admin中的，表示多个objects的名字</br><br>unique_together = [(‘一个Field’,’另一个Field’)] <strong>让两个Field一起的值unique</strong></br><br>非Meta但是一起记了：<br></br>def  _</em> str __(self):<br></br>return smart _text (self.title) 返回一个新的名字（admin里可见，替换post）</br></p>
+</li>
+<li><p>*python2里是unicode/smart _text让它能自适应语言**<br></br>slugnify()让名字中间空格变为-并且unique，自动添加重复名后计数<br></br>overwriting save：</br><br>def save(self, * args, * kwargs) <strong>可以overwriting用来设置一些有依赖的值的自动构建，比如slug可以用slugnify(self.title)来完成</strong><br></br>发布了多久</br><strong>from django.utils.timesince import timesince</strong><br></br><strong>用timesince(某事件)得到过了多久</strong></p>
+<h2 id="ModelManagers"><a href="#ModelManagers" class="headerlink" title="ModelManagers"></a>ModelManagers</h2></li>
+<li><p>*class PostModelManager(models.Manager):</p>
+<pre><code>   def all(self, * args, ** kwargs):可以让flag等于False的不显示**</code></pre>
+<h2 id="signals"><a href="#signals" class="headerlink" title="signals"></a>signals</h2></li>
+<li><p>*用于在models储存或删除时传递信息**</p>
+</li>
+<li><p>*django.db.models.signals.pre _save &amp; django.db.models.signals.post _save**</br></p>
+</li>
+<li><p>用法:</br><br>def preSaveReciver(sender, instance, created, * args, ** kwargs):<strong>可以用pre_ save.connect(preSaveReciver, sender = PostModel) 来接收</strong><br>pre_save()</p>
+</br>
+　　　　django.db.models.signals.pre_save
+</br>
+　　　　在model执行save方法前被调用
+</br>
+　　　　5个参数：
+</br>
+　　　　　　pre_save（sender，instance，raw，using，update_fields）
+</br>
+　　　　　　　　sender：model类
+</br>
+　　　　　　　　instance：保存的实例
+</br>
+　　　　　　　　raw：一个Boolean类型，如果model被全部保存则为True
+</br>
+　　　　　　　　using：使用的数据库别名
+</br>
+　　　　　　　　update_fields：传递的待更新的字段集合，如果没有传递，则为None
+</br>
+　　post_save()
+</br>
+　　　　djang.db.models.post_save
+</br>
+　　　　在model执行完save方法后被调用
+</br>
+　　　　6个参数
+</br>
+　　　　　　post_save（sender，instance，created，raw，using，update_fields）
+</br>
+　　　　　　　　sender：model class
+</br>
+　　　　　　　　instance：被保存的model实例
+</br>
+　　　　　　　　created：Boolean值，如果创建了一个新的记录则为True
+</br>
+　　　　　　　　raw：Boolean值，如果model被全部保存则为True
+</br>
+　　　　　　　　using：使用的数据库别名
+</br>
+　　　　　　　　update_fields：传递的待更新的字段集合，如果没有传递，则为None
+</br>
+　　pre_delete()
+</br>
+　　　　django.db.models.signals.pre_delete
+</br>
+　　　　在执行model的delete（）或者queryset的delete（）方法前调用
+</br>
+　　　　pre_delete(sender,instance,using)
+</br>
+　　　　　　sender：model class
+</br>
+　　　　　　instance：被删除的实例
+</br>
+　　　　　　using：使用的数据库别名
+</br>
+　　6）post_delete（）
+</br>
+　　　　django.db.models.signals.post_delete
+</br>
+　　　　在执行model的delete（）或者queryset的delete（）方法后调用
+</br>
+　　　　post_delete(sender, instance，using)
+</br>
+　　　　　　sender：model class
+</br>
+　　　　　　instance：被删除的实例，注意：此时，该实例已经被删除了，数据库中不再有这条记录，所以在使用这个实例的时候要格外注意
+</br>
+　　　　　　using：被使用的数据库别名
+
+
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Django-Model"><span class="toc-number">1.</span> <span class="toc-text">Django Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AutoField"><span class="toc-number">1.0.1.</span> <span class="toc-text">AutoField</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#class-AutoField-options"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">class AutoField(**options)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BigAutoField"><span class="toc-number">1.0.2.</span> <span class="toc-text">BigAutoField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BigAutoField-options"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">class BigAutoField(**options)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BinaryField"><span class="toc-number">1.0.3.</span> <span class="toc-text">BinaryField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BinaryField-max-length-None-options"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">class BinaryField(max_length&#x3D;None, **options)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BooleanField"><span class="toc-number">1.0.4.</span> <span class="toc-text">BooleanField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-BooleanField-options"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">class BooleanField(**options)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ModelManagers"><span class="toc-number">1.1.</span> <span class="toc-text">ModelManagers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#signals"><span class="toc-number">1.2.</span> <span class="toc-text">signals</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/20/Django-Model/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/20/Django-Model/&text=Django Model"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/20/Django-Model/&is_video=false&description=Django Model"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django Model&body=Check out this article: http://yoursite.com/2020/05/20/Django-Model/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/20/Django-Model/&title=Django Model"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/20/Django-Model/&name=Django Model&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/20/Django-Model/&t=Django Model"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    RussellGe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

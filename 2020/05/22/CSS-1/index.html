@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="盒模型标准盒子模型： box-sizing: content-box{ width: 300px, height:300px, padding: 50px, border: 50px } content &#x3D; width &#x3D; 300padding &#x3D; 50border &#x3D; 50total &#x3D; 500 IE盒子模型： box-sizing: border-box{ width: 300px, heig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS">
+<meta property="og:url" content="http://yoursite.com/2020/05/22/CSS-1/index.html">
+<meta property="og:site_name" content="Russssss">
+<meta property="og:description" content="盒模型标准盒子模型： box-sizing: content-box{ width: 300px, height:300px, padding: 50px, border: 50px } content &#x3D; width &#x3D; 300padding &#x3D; 50border &#x3D; 50total &#x3D; 500 IE盒子模型： box-sizing: border-box{ width: 300px, heig">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-22T13:44:57.000Z">
+<meta property="article:modified_time" content="2020-08-17T03:45:48.716Z">
+<meta property="article:author" content="RussellGe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CSS</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.0.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/22/JS%E4%B9%A6NOTE/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/20/Django-Model/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/22/CSS-1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/22/CSS-1/&text=CSS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/22/CSS-1/&is_video=false&description=CSS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS&body=Check out this article: http://yoursite.com/2020/05/22/CSS-1/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/22/CSS-1/&name=CSS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/22/CSS-1/&t=CSS"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9A-box-sizing-content-box"><span class="toc-number">1.0.1.</span> <span class="toc-text">标准盒子模型： box-sizing: content-box</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IE%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9A-box-sizing-border-box"><span class="toc-number">1.0.2.</span> <span class="toc-text">IE盒子模型： box-sizing: border-box</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flex%E5%B8%83%E5%B1%80"><span class="toc-number">2.</span> <span class="toc-text">Flex布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-direction-%E6%A8%AA%E5%90%91%E9%BB%98%E8%AE%A4"><span class="toc-number">2.0.1.</span> <span class="toc-text">flex-direction (横向默认)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-wrap"><span class="toc-number">2.0.2.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-flow"><span class="toc-number">2.0.3.</span> <span class="toc-text">flex-flow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#justify-content"><span class="toc-number">2.0.4.</span> <span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-items"><span class="toc-number">2.0.5.</span> <span class="toc-text">align-items</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-grow"><span class="toc-number">2.0.6.</span> <span class="toc-text">flex-grow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-shrink"><span class="toc-number">2.0.7.</span> <span class="toc-text">flex-shrink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-basis"><span class="toc-number">2.0.8.</span> <span class="toc-text">flex-basis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex"><span class="toc-number">2.1.</span> <span class="toc-text">flex</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Grid"><span class="toc-number">3.</span> <span class="toc-text">Grid</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-template-rows-grid-template-columns-%EF%BC%88%E7%94%A8%E4%BA%8Econtainer%EF%BC%89"><span class="toc-number">3.0.1.</span> <span class="toc-text">grid-template-rows&#x2F; grid-template-columns （用于container）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-template-areas"><span class="toc-number">3.0.2.</span> <span class="toc-text">grid-template-areas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#row-gap-column-gap"><span class="toc-number">3.0.3.</span> <span class="toc-text">row-gap&#x2F;column-gap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-row-grid-column%EF%BC%88%E7%94%A8%E4%BA%8Ecell%EF%BC%89-grid-area"><span class="toc-number">3.0.4.</span> <span class="toc-text">grid-row &#x2F; grid-column（用于cell） grid-area</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D"><span class="toc-number">4.</span> <span class="toc-text">单位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#em"><span class="toc-number">4.0.1.</span> <span class="toc-text">em</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rem"><span class="toc-number">4.0.2.</span> <span class="toc-text">rem</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CSS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Russssss</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-22T13:44:57.000Z" itemprop="datePublished">2020-05-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><h4 id="标准盒子模型：-box-sizing-content-box"><a href="#标准盒子模型：-box-sizing-content-box" class="headerlink" title="标准盒子模型： box-sizing: content-box"></a>标准盒子模型： box-sizing: content-box</h4><p>{ width: 300px, height:300px, padding: 50px, border: 50px }</p>
+<p>content = width = 300<br>padding = 50<br>border = 50<br>total = 500</p>
+<h4 id="IE盒子模型：-box-sizing-border-box"><a href="#IE盒子模型：-box-sizing-border-box" class="headerlink" title="IE盒子模型： box-sizing: border-box"></a>IE盒子模型： box-sizing: border-box</h4><p>{ width: 300px, height:300px, padding: 50px, border: 50px }</p>
+<p>width = 300 = content + padding * 2 + border * 2</p>
+<p>content = 100px</p>
+<h2 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h2><p><strong>由Container（父元素）与Item（子元素）组成</strong><br><strong>Flex下overflow失效问题：在需要overflow的地方加上width=0</strong><br></br><br>Container{display: flex}</p>
+<h4 id="flex-direction-横向默认"><a href="#flex-direction-横向默认" class="headerlink" title="flex-direction (横向默认)"></a>flex-direction (横向默认)</h4><p>flex-direction: row 主轴为横向 row-reverse 反row<br>            </br>column 主轴为竖向 column-reverse 反column</p>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p>让items可以换行</p>
+<p>flex-wrap: nowrap(默认)<br>        </br>wrap（可换行）<br>        </br>wrap-reverse（反向）</p>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p>direction与wrap的组合</p>
+<p>flex-flow：row wrap；</p>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p><strong>定义了item在主轴上的对齐方式</strong><br></br> justify-content：center 居中</br> flex-start 默认值。项目位于容器的开头 </br>flex-end 项目位于容器的结尾 </br>space-between 项目位于各行之间留有空白的容器内<strong>两边有空</strong></br>space-around    项目位于各行之前、之间、之后都留有空白的容器内<strong>两边没空</strong></p>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p><strong>定义了item在侧轴上的对齐方式（单行） 多行改为align-content 单个改为align-self（写的地方由container改成item）</strong><br>stretch<br>默认值。元素被拉伸以适应容器。</p>
+<p>如果指定侧轴大小的属性值为’auto’，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照’min/max-width/height’属性的限制。</p>
+<p>center<br>元素位于容器的中心。</p>
+<p>弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。</p>
+<p>flex-start<br>元素位于容器的开头。</p>
+<p>弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。</p>
+<p>flex-end<br>元素位于容器的结尾。</p>
+<p>弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。</p>
+<p>baseline<br>元素位于容器的基线上。</p>
+<p>如弹性盒子元素的行内轴与侧轴为同一条，则该值与’flex-start’等效。其它情况下，该值将参与基线对齐。</p>
+<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h4><p><strong>定义项目的放大比例，默认为0，就是即使有剩余空间也不会放大 作用在item上，后面跟的值表示比例</strong></p>
+<p>flex-grow：1 2 3  表示占六分之一，三分之一，二分之一</p>
+<h4 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h4><p><strong>定义项目的缩小比例，默认为1，就是会随着container而缩小 作用在item上，后面跟的值表示比例</strong></p>
+<p>flex-shrink：1 2 3  表示占六分之一，三分之一，二分之一</p>
+<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4><p><strong>定义了在分配多余空间之前，item占据的主轴空间</strong></p>
+<p>类似定义一个item的宽度（row）</p>
+<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><strong>前3个属性的集合</strong></p>
+<p>默认 0 1 auto</p>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><h4 id="grid-template-rows-grid-template-columns-（用于container）"><a href="#grid-template-rows-grid-template-columns-（用于container）" class="headerlink" title="grid-template-rows/ grid-template-columns （用于container）"></a>grid-template-rows/ grid-template-columns （用于container）</h4><p>用于设定竖直/水平方向的划分<br>grid-template-rows：100px 100px 100px 100px 100px</p>
+<p> 1fr 1fr 1fr 1fr 1fr <strong>fr指的份数</strong></br><br>= repeat（5，1fr）<strong>不适用于grid-template-areas</strong></p>
+<h4 id="grid-template-areas"><a href="#grid-template-areas" class="headerlink" title="grid-template-areas"></a>grid-template-areas</h4><p>grid-template-areas： “header header header header header”<br>“. div div div .”<strong>第一行grid中1-5被命名为header， 第二行2-4被命名为div</strong></p>
+<h4 id="row-gap-column-gap"><a href="#row-gap-column-gap" class="headerlink" title="row-gap/column-gap"></a>row-gap/column-gap</h4><p>定义行与行，列与列之间的距离</p>
+<h4 id="grid-row-grid-column（用于cell）-grid-area"><a href="#grid-row-grid-column（用于cell）-grid-area" class="headerlink" title="grid-row / grid-column（用于cell） grid-area"></a>grid-row / grid-column（用于cell） grid-area</h4><p>语法： grid-row：1/3 -&gt; 占row的1到3格<br>                1/span 2-&gt;从1开始延伸2格<br>grid-area： 1/1/4/3 -&gt; row1 column1 row2 column2(左上角到右下角)</p>
+<h2 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h2><h4 id="em"><a href="#em" class="headerlink" title="em"></a>em</h4><p>针对父元素的font-size 1em=父元素的font-size大小</p>
+<h4 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h4><p>针对根元素（html）在谷歌默认是16px</p>
+<p>移动端多用rem，便于计算 图片的宽高，字体大小都用rem</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9A-box-sizing-content-box"><span class="toc-number">1.0.1.</span> <span class="toc-text">标准盒子模型： box-sizing: content-box</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IE%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9A-box-sizing-border-box"><span class="toc-number">1.0.2.</span> <span class="toc-text">IE盒子模型： box-sizing: border-box</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flex%E5%B8%83%E5%B1%80"><span class="toc-number">2.</span> <span class="toc-text">Flex布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-direction-%E6%A8%AA%E5%90%91%E9%BB%98%E8%AE%A4"><span class="toc-number">2.0.1.</span> <span class="toc-text">flex-direction (横向默认)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-wrap"><span class="toc-number">2.0.2.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-flow"><span class="toc-number">2.0.3.</span> <span class="toc-text">flex-flow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#justify-content"><span class="toc-number">2.0.4.</span> <span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-items"><span class="toc-number">2.0.5.</span> <span class="toc-text">align-items</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-grow"><span class="toc-number">2.0.6.</span> <span class="toc-text">flex-grow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-shrink"><span class="toc-number">2.0.7.</span> <span class="toc-text">flex-shrink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-basis"><span class="toc-number">2.0.8.</span> <span class="toc-text">flex-basis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex"><span class="toc-number">2.1.</span> <span class="toc-text">flex</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Grid"><span class="toc-number">3.</span> <span class="toc-text">Grid</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-template-rows-grid-template-columns-%EF%BC%88%E7%94%A8%E4%BA%8Econtainer%EF%BC%89"><span class="toc-number">3.0.1.</span> <span class="toc-text">grid-template-rows&#x2F; grid-template-columns （用于container）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-template-areas"><span class="toc-number">3.0.2.</span> <span class="toc-text">grid-template-areas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#row-gap-column-gap"><span class="toc-number">3.0.3.</span> <span class="toc-text">row-gap&#x2F;column-gap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grid-row-grid-column%EF%BC%88%E7%94%A8%E4%BA%8Ecell%EF%BC%89-grid-area"><span class="toc-number">3.0.4.</span> <span class="toc-text">grid-row &#x2F; grid-column（用于cell） grid-area</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D"><span class="toc-number">4.</span> <span class="toc-text">单位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#em"><span class="toc-number">4.0.1.</span> <span class="toc-text">em</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rem"><span class="toc-number">4.0.2.</span> <span class="toc-text">rem</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/22/CSS-1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/05/22/CSS-1/&text=CSS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/22/CSS-1/&is_video=false&description=CSS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS&body=Check out this article: http://yoursite.com/2020/05/22/CSS-1/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/05/22/CSS-1/&title=CSS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/22/CSS-1/&name=CSS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/22/CSS-1/&t=CSS"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    RussellGe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
