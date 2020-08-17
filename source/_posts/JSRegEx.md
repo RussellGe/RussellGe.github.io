@@ -1,7 +1,7 @@
 ---
 title: 'JSRegEx '
 date: 2020-08-14 16:06:49
-tags:JavaScript
+tags: JavaScript
 ---
 
 ### Regular Expressions:

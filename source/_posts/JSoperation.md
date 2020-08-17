@@ -1,7 +1,7 @@
 ---
 title: JSoperation
 date: 2020-08-12 21:16:42
-tags:JavaScript
+tags: JavaScript
 ---
 
 ### 逻辑与&&  短路操作

@@ -1,7 +1,7 @@
 ---
 title: JS对象属性
 date: 2020-07-06 13:56:26
-tags:Javascript
+tags: Javascript
 ---
 
 ## 属性标志和属性描述符

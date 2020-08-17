@@ -1,7 +1,7 @@
 ---
 title: vue视频笔记
 date: 2020-07-20 17:11:51
-Tags:vue
+Tags: Vue
 ---
 
 ### Vue virtual Dom

@@ -1,7 +1,7 @@
 ---
 title: ReactNativeNavigation
 date: 2020-07-06 14:27:12
-tags:React-Native
+tags: React-Native
 ---
 
 npm install @react-navigation/native

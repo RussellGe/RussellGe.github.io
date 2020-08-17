@@ -1,7 +1,7 @@
 ---
 title: JS基础Note
 date: 2020-08-17 11:46:38
-tags:JavaScript
+tags: JavaScript
 ---
 
 ### Regular Expressions:

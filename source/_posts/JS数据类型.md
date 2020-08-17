@@ -1,7 +1,7 @@
 ---
 title: JS数据类型
 date: 2020-07-27 15:29:42
-tags:JavaScript
+tags: JavaScript
 ---
 
 ##### Stack:自动分配的内存空间，由系统自动释放

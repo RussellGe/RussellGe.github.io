@@ -1,7 +1,7 @@
 ---
 title: JS中的几个类
 date: 2020-07-11 11:37:44
-tags:JavaScript
+tags: JavaScript
 ---
 
 - #### ArrayBuffer

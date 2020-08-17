@@ -1,7 +1,7 @@
 ---
 title: JS类
 date: 2020-07-06 16:13:50
-tags:JavaScript
+tags: JavaScript
 ---
 
 ## JS中的类

@@ -1,7 +1,7 @@
 ---
 title: vue-组件
 date: 2020-06-04 09:44:13
-tags:Vue
+tags: Vue
 ---
 * **组件的data必须是一个函数**
 </br>在组件中，data写法为：
